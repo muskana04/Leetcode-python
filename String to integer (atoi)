@@ -1,0 +1,18 @@
+class Solution:
+    def myAtoi(self, s: str) -> int:
+        s = s.strip()
+        sign = 1
+        i = 0
+
+        if s and s[0] in "+-":
+            if s[0] == "-":
+                sign = -1
+            i = 1
+
+        n = 0
+        while i < len(s) and s[i].isdigit():
+            n = n * 10 + int(s[i])
+            i += 1
+
+        n *= sign
+        return max(-2**31, min(n, 2**31 - 1))
