@@ -1,0 +1,11 @@
+class Solution:
+    def letterCombinations(self, digits):
+        d = ['','','abc','def','ghi','jkl','mno','pqrs','tuv','wxyz']
+        res = ['']
+
+        for x in digits:
+            res = [a + b for a in res for b in d[int(x)]]
+
+        return res
+
+        
